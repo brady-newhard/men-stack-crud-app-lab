@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <div>
+        <a href="/">Bike</a>
+    </div>
+    <div>
+        <p><b>Brand:</b> <%= bike.brand %></p>
+        <p><b>Model:</b> <%= bike.model %></p>
+        <p><b>Year:</b> <%= bike.year %></p>
+        <p><b>Type:</b> <%= bike.type %></p>
+        <div>
+            <img src="/<%= bike.image %>" alt="<%= bike.brand %> <%= bike.model %>" style="width:20rem; height:auto;">
+        </div> 
+    </div>
+    <div>
+        <form action="/bikes/<%= bike.id %>?_method=DELETE" method="POST">
+            <a href="/bikes/<%= bike.id %>/edit"><button>Edit</button></a>
+            <button>Delete</button>
+            <a href="/bikes"><button>Back</button></a>
+        </form>
+    </div>
+</body>
+</html>

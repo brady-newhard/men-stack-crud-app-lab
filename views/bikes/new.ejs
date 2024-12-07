@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <div>
+        <a href="/">Home</a>
+        <a href="/bikes">Bikes Page</a>
+    </div>
+    <h2>Add a New Bike</h2>
+    <form action="/bikes" method="POST" class="col s12">
+        <div>
+            <label for="brand">Brand</label>
+            <input type="text" name="brand" id="brand" required>            
+        </div>
+        <div>
+            <label for="model">Model</label>
+            <input type="text" name="model" id="model" required>            
+        </div>
+        <div>
+            <label for="year">Year</label>
+            <input type="text" name="year" id="year" required>           
+        </div>
+        <div>
+            <label for="type">Type</label>
+            <input type="text" name="type" id="type" required>   
+        </div>
+        <div>
+            <button>Submit</button>
+        </div>
+    </form>
+</body>
+</html>

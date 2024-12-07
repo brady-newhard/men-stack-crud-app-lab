@@ -4,42 +4,48 @@ module.exports = [
       model: "Genius 910",
       year: 2020, 
       type: "Mountain",
+      image: "images/ScottGenius910.jpg"
     },
     { id: 2, 
       brand: "Scott", 
       model: "RC Pro",
       year: 2022, 
       type: "Mountain",
+      image: "images/ScottRCPro.jpg"
     },
     { id: 3, 
       brand: "Giant", 
       model: "Revolt 2",
       year: 2020, 
       type: "Gravel",
+      image: "images/GiantRevolt.jpg"
     },
     { id: 4, 
       brand: "Trek", 
       model: "Domane 2.0",
       year: 2012, 
       type: "Road",
-      },
+      image: "images/TrekDomane2.jpg"
+    },
     { id: 5, 
       brand: "Specialized", 
       model: "Demo 8",
       year: 2018, 
       type: "Mountain",
+      image: String
     },
     { id: 6, 
       brand: "Trek", 
       model: "Fuel EX 8",
       year: 2009, 
       type: "Mountain",
+      image: "images/TrekFuel.jpg"
     },
     { id: 7, 
       brand: "Trek", 
       model: "930 Singletrack",
       year: 1994, 
       type: "Mountain",
-    },
-    
+      image: String
+    },  
 ];
