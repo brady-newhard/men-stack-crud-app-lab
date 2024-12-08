@@ -7,8 +7,9 @@
 </head>
 <body>
     <div>
-        <a href="/">Bike</a>
+        <a href="/bikes">Go to My Bikes</a>
     </div>
+    <h1>Bike Details</h1>
     <div>
         <p><b>Brand:</b> <%= bike.brand %></p>
         <p><b>Model:</b> <%= bike.model %></p>
@@ -18,10 +19,10 @@
             <img src="/<%= bike.image %>" alt="<%= bike.brand %> <%= bike.model %>" style="width:20rem; height:auto;">
         </div> 
     </div>
-    <div>
-        <form action="/bikes/<%= bike.id %>?_method=DELETE" method="POST">
-            <a href="/bikes/<%= bike.id %>/edit"><button>Edit</button></a>
-            <button>Delete</button>
+    <div> 
+        <a href="/bikes/<%= bike.id %>/edit"><button>Edit</button></a>
+        <form action="/bikes/<%= bike.id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
             <a href="/bikes"><button>Back</button></a>
         </form>
     </div>

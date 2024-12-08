@@ -8,10 +8,10 @@
 <body>
     <div>
         <a href="/">Home</a>
-        <a href="/bikes">Go to My Bikes Page</a>
+        <a href="/bikes">Go to My Bikes</a>
     </div>
-    <h1>Add a New Bike</h1>
-    <form action="/bikes" method="POST" class="col s12">
+    <h1>Edit Bike</h1>
+    <form action="/bikes/<%= bike.id %>?_method=PUT" method="POST" class="col s12">
         <div>
             <label for="brand">Brand</label>
             <input type="text" name="brand" id="brand" required>            
@@ -29,7 +29,7 @@
             <input type="text" name="type" id="type" required>   
         </div>
         <div>
-            <button>Submit</button>
+            <button type ="submit">Update</button>
         </div>
     </form>
 </body>
