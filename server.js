@@ -78,27 +78,26 @@ app.get('/bikes/:id/edit', (req, res) => {
 
 // Edit
 app.put("/bikes/:id", (req, res) => {
-    const bikeId = parseInt(req,params.id);
-    const bikeInde = bikes.findIndex(bike => bike.id === bikeId);
+    const bikeId = parseInt(req.params.id);
+    const bikeIndex = bikes.findIndex(bike => bike.id === bikeId);
     if (bikeIndex !== -1) {
         bikes[bikeIndex] = { ...bikes[bikeIndex], ...req.body}
-        res.status(200).redirect(`/bikes`)
+        res.status(200).redirect("/bikes")
     } else {
         res.status(404).render('404/notFound', { title: 'Bike Not Found' })
     } 
 })
 
 // Delete
-app.delete('/bikes/:id', (req, res) => {
+app.delete("/bikes/:id", (req, res) => {
     const bikeId = parseInt(req.params.id);
     const bikeIndex = bikes.findIndex(bike => bike.id === bikeId);
     if (bikeIndex !== -1) {
         bikes.splice(bikeIndex, 1);
-        
     } else {
         res.status(404).render('404/notFound', { title: 'Bike Not Found' });
     }
-    res.redirect('/bikes'); 
+    res.redirect("/bikes"); 
 });
 
 //------------------------------Listener-----------------------------------//
