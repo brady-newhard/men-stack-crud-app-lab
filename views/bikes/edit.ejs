@@ -14,19 +14,19 @@
     <form action="/bikes/<%= bike.id %>?_method=PUT" method="POST" class="col s12">
         <div>
             <label for="brand">Brand</label>
-            <input type="text" name="brand" id="brand" required>            
+            <input type="text" name="brand" id="brand" value="<%= bike.brand %>" required>            
         </div>
         <div>
             <label for="model">Model</label>
-            <input type="text" name="model" id="model" required>            
+            <input type="text" name="model" id="model" value="<%= bike.model %>" required>            
         </div>
         <div>
             <label for="year">Year</label>
-            <input type="text" name="year" id="year" required>           
+            <input type="number" name="year" id="year" value="<%= bike.year %>" required>           
         </div>
         <div>
             <label for="type">Type</label>
-            <input type="text" name="type" id="type" required>   
+            <input type="text" name="type" id="type" value="<%= bike.type %>" required>   
         </div>
         <div>
             <button type ="submit">Update</button>
