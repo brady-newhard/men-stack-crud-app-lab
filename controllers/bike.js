@@ -1,15 +1,29 @@
 const Bike = require('../models/bike')
 
+
 // Fetch all data
 async function index(req, res) {
-    try {
-        const bikes = await Bike.find({})
-        res.render('bikes', { title: 'Bike List', bikes })
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).send('Internal server error');
-    }
-}
+    if (req.session.user) {
+        try {
+          const bikes = await Bike.find(); // Fetch bikes from the database
+          res.render('bikes', { title: 'Bike List', bikes });
+        } catch (error) {
+          console.error('Error fetching bikes:', error.message);
+          res.status(500).send('Internal server error');
+        }
+      } else {
+        res.send("Sorry, no guests allowed.");
+      }
+};
+
+//     try {
+//         const bikes = await Bike.find({})
+//         res.render('bikes', { title: 'Bike List', bikes })
+//     } catch (error) {
+//         console.error(error.message);
+//         res.status(500).send('Internal server error');
+//     }
+// }
 
 // Open a New Bike Form
 function newBike(req, res) {

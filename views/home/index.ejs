@@ -6,9 +6,17 @@
     <title>My Bikes Homepage</title>
 </head>
 <body>
-    <h1>Welcome to My Bikes Homepage</h1>
-    <div>
-        <a href="/bikes"><button>Go to My Bikes</button></a>
-    </div>    
+    <% if (user) { %>
+        <h1>Welcome to My Bikes Homepage, <%= user.username %>!</h1>
+        <p> 
+            <a href="/auth/sign-out"><button>Sign out</button></a>
+          </p>
+        <% } else { %>
+        <h1>Welcome to My Bikes Homepage, Guest.</h1>
+        <p>
+          <a href="/auth/sign-up"><button>Sign up</button></a></a> or <a href="/auth/sign-in"><button>Sign in</button></a>
+        </p>
+        <% } %>
+   <p><a href="/bikes"><button>Go to My Bikes</button></a></p>   
 </body>
 </html>

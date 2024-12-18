@@ -7,8 +7,11 @@ const app = express();
 // const mongoose = require('mongoose');
 const path = require("path")
 const methodOverride = require("method-override");
+const session = require('express-session');
+const authController = require("./controllers/auth.js");
 
 //--------------CONFIGURE MONGOOSE----------------------//
+
 require('./configs/database');
 
 // mongoose.connect(process.env.MONGODB_URI, {
@@ -27,17 +30,48 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride("_method"))
+app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        maxAge: 1000 * 60 * 60,
+      }
+    })
+  );
+// -------------------------------ROUTES------------------------------//
 
-// -------------------------------CRUD/INDUCE------------------------------//
+app.use("/auth", authController)
 
 // Seed Route
-app.use("/", require("./routes/seed"))
+app.use('/', require('./routes/seed'))
 
 // Home Route
 app.use('/', require('./routes/home'));
 
 // Bikes Routes
 app.use('/', require('./routes/bike'));
+
+
+
+//------------------------------Listener-----------------------------------//
+
+app.listen(process.env.PORT, () => {
+    console.log(`🎧Listening on http://localhost:${process.env.PORT}`);
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 // New
 // app.get('/bikes/new', (req, res) => {
@@ -100,13 +134,15 @@ app.use('/', require('./routes/bike'));
 //     res.redirect("/bikes"); 
 // });
 
-//------------------------------Listener-----------------------------------//
+// AUTHORIZATION
+// app.get("/", async (req, res) => {
+//     res.render("home/index.ejs", { user: req.session.user });    
+// });
 
-app.listen(process.env.PORT, () => {
-    console.log(`🎧Listening on http://localhost:${process.env.PORT}`);
-})
-
-
-
-
-
+// app.get("/bikes", (req, res) => {
+//   if (req.session.user) {
+//     res.render('bikes', { title: 'Bike List', bikes })
+//   } else {
+//     res.send("Sorry, no guests allowed.");
+//   }
+// });
