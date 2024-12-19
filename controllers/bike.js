@@ -8,7 +8,7 @@ async function index(req, res) {
           const bikes = await Bike.find(); // Fetch bikes from the database
           res.render('bikes', { title: 'Bike List', bikes });
         } catch (error) {
-          console.error('Error fetching bikes:', error.message);
+          console.error(error.message);
           res.status(500).send('Internal server error');
         }
       } else {
